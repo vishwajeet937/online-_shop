@@ -1,0 +1,21 @@
+The key things use in this project
+      Linux
+      Git
+      Docker
+
+STEP-1  At first create an EC2 instance in AWS and through SSH connect to the instance.
+STEP-2  Install git, then use "git init" command to create repository.
+        Then creating connection with github through Personal access token and here we use the command "git remote set-url origin https://PAT-key@github.com/git repository path"
+STEP-3  Clone the repository from github using "git clone http-url" command and then enter the repository to using "cd repositoy-name" command
+STEP-4  Creating a branch name feature using "git checkout -b feature" command and 
+STEP-5  Now need to create a dockerfile but for this fisrt need to install docker and login into it.
+        using "sudo apt-get install docker.io" command install docker and using "systemctl status docker" the command check docker status it's running or not
+STEP-6  After installing docker we need to login in docker for this we need to give permission of docker to the user
+        So, first we check the group "cat /etc/group" with this command and provide docker group access to the user by using "sudo usermod -aG docker $USER" the command  ## $USER= current login user
+STEP-7  Now need to restart the group to get the access, So we use "newgrp groupname " ## here groupname=docker
+STEP-8  Now we create a docker file using "vim dockerfile" ## You get the docker file in this repository and everything is describe on that about dockerfile.
+Step-9  After creating docker file build an image using "docker build -t <image_name> <file-location>" the commend and run the command to create container and the command is 
+        "docker run -d -p 5173:5173 image_name" ## -d = run in detached mode -p = use for port maping 5173= port no 
+STEP-10 Took the public ip of the EC2 instance and check in local (like - http://51.20.89.137:5173)
+STEP-11 When it confirm that everything is working fine and app is running well using "git add filename" to reach the file on staged position and git commit -m "command" to reach in track. and create a  
+        pull request from feature branch to master branch to merge the docker file.
